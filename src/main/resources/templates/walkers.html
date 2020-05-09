@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Walker List</title>
+</head>
+<body>
+	<h1>Walker list</h1>
+
+	<p>
+		Back to <a th:href="@{/home}">home</a>
+	</p>
+
+	<table>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>E-mail address</th>
+			<th>address</th>
+			<th>Phone number</th>
+			<th>Walking Radius</th>
+		</tr>
+		<tr th:each="walker : ${walkers}">
+			<td th:text="${walker.firstName}"></td>
+			<td th:text="${walker.lastName}"></td>
+			<td th:text="${walker.email}"></td>
+			<td th:text="${walker.adress}"></td>
+			<td th:text="${walker.phoneNumber}"></td>
+			<td th:text="${walker.walkingRadius}"></td>
+		</tr>
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Dog List</title>
+</head>
+<body>
+	<h1>Dog list</h1>
+
+	<p>
+		Back to <a th:href="@{/home}">home</a>
+	</p>
+
+	<table>
+		<tr>
+			<th>Dog name</th>
+			<th>Weight</th>
+			<th>Special needs</th>
+		</tr>
+		<tr th:each="dog : ${dogs}">
+			<td th:text="${dog.name}"></td>
+			<td th:text="${dog.weight} + ' kg'"></td>
+			<td th:text="${dog.specialNeeds}"></td>
+		</tr>
+	</table>
+
+</body>
+</html>
