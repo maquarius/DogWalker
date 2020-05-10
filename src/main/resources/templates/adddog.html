@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Add dog</title>
+</head>
+<body>
+	<h1>Add dog</h1>
+
+	<p>
+		Back to <a th:href="@{/home}">home</a>
+	</p>
+	
+	<!-- owner object is loaded to "owner" from the addDog/{id} controller.
+		how to bind that to dog object so it fullfills dog constructor. -->
+	<form th:object="${dog}" th:action="@{saveDog}" action="#" method="post">
+	<input type="hidden" th:field="*{owner}" />
+	<label for="dogname">Dog name</label>
+	<input type="text" id="dogname" th:field="*{name}"/>
+		<label for="dogneeds">Special Needs</label>
+	<input type="text" id="dogneeds" th:field="*{specialNeeds}"/>
+		<label for="dogweight">Weight in Kg</label>
+	<input type="number" id="dogweight" th:field="*{weight}"/>
+	<input type="submit" value="Save"></input>
+		
+	</form>
+</body>
+</html>

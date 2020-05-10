@@ -1,9 +1,13 @@
 package com.BITe.DogWalker.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Walker {
@@ -11,6 +15,9 @@ public class Walker {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long walkerId;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "walker")
+	private List<WalkEvent> walkEvent;
 
 	private String firstName, lastName, email, adress;
 	private int walkingRadius;

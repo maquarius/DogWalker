@@ -35,9 +35,9 @@ public class DogWalkerApplication {
 			wrepository.save(new Walker("Appi","Heijn", "AppiHeijn@ah.nl", "Zaansestraat 4", 528673, 40));
 			
 			Log.info("Log some Dogs");
-			drepository.save(new Dog("Haiku","Needs many bones", 20));
-			drepository.save(new Dog("Bopsie","On a diet", 60));
-			drepository.save(new Dog("waffle","agressive towards puppies", 30));
+			drepository.save(new Dog(orepository.findByFirstName("Helly").get(0),"Haiku","Needs many bones", 20));
+			drepository.save(new Dog(orepository.findByFirstName("willem").get(0),"Bopsie","On a diet", 60));
+			drepository.save(new Dog(orepository.findByFirstName("Robin").get(0),"waffle","agressive towards puppies", 30));
 			
 		};
 	}
