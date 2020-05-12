@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.BITe.DogWalker.web.WalksController;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = DogWalkerApplication.class)
 class DogWalkerApplicationTests {
 	@Autowired
 	private WalksController controller;
