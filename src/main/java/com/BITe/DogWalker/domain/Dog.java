@@ -11,17 +11,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Dog {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long dogId;
-
+	
+	@JsonBackReference
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "dog")
 	private List<WalkEvent> walkEvent;
 
 	@ManyToOne
+	@JsonManagedReference
 	@JoinColumn(name = "ownerId")
 	private Owner owner;
 

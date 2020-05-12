@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class WalkEvent {
 
@@ -15,10 +17,12 @@ public class WalkEvent {
 	private Long walkId;
 
 	@ManyToOne
+	@JsonManagedReference
 	@JoinColumn(name = "dogId")
 	private Dog dog;
 
 	@ManyToOne
+	@JsonManagedReference
 	@JoinColumn(name = "walkerId")
 	private Walker walker;
 

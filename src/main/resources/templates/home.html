@@ -4,12 +4,22 @@
         <title>Homescreen DogWalker</title>
     </head>
     <body>
-        <h1>Welcome!</h1>
+        <h1>Welcome,  [[${#httpServletRequest.remoteUser}]] !</h1>
 
         <p>Click <a th:href="@{/doglist}">here</a> to see a list of dogs.</p>
         
         <p>Click <a th:href="@{/ownerlist}">here</a> to see a list of dog owners.</p>
         
         <p>Click <a th:href="@{/walkerlist}">here</a> to see a list of dog walkers.</p>
+    
+        <p>Click <a th:href="@{/walkeventlist}">here</a> to see a list of dog walking events.</p>
+    
+        <p>Click <a th:href="@{/owner/home/1}">here</a> to see the owner page of Helly Hansen .</p>
+        
+        <p>Click <a th:href="@{/walker/home/4}">here</a> to see the walker page of Johhny Walker .</p>
+        
+        <form th:action="@{/logout}" method="post">
+        	<input type="submit" value="Sign Out"/>
+        </form>
     </body>
 </html>

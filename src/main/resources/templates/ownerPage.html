@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Owner PAge</title>
+</head>
+<body>
+	<h1
+		th:text="${owner != null ? 'Hello ' + owner.firstName + ' ' + owner.lastName + '!' : 'No owner found'}"></h1>
+
+	<p>
+		Back to <a th:href="@{/home}">home</a>
+	</p>
+
+	<h2>Your dog(s)</h2>
+	<table>
+		<tr>
+			<th>Dog name</th>
+			<th>Weight</th>
+			<th>Special needs</th>
+		</tr>
+		<tr th:each="dog : ${dogs}">
+			<td th:text="${dog.name}"></td>
+			<td th:text="${dog.weight} + ' kg'"></td>
+			<td th:text="${dog.specialNeeds}"></td>
+		</tr>
+	</table>
+
+	<a th:href="@{/addDog/{id}(id=${owner.ownerId})}">Add dog</a>
+
+	<h2>personal data</h2>
+	<table>
+		<tr>
+			<th>E-Mail</th>
+			<th>Address</th>
+			<th>Phone Number</th>
+		</tr>
+		<tr>
+			<td th:text="${owner.email}"></td>
+
+			<td th:text="${owner.adress}"></td>
+
+			<td th:text="${owner.phoneNumber}"></td>
+
+		</tr>
+	</table>
+
+	<h3>Walks</h3>
+	<table>
+		<tr>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Starting Address</th>		
+			<th>Ending Address</th>		
+			<th>Payment</th>	
+			<th>Special Comments</th>			
+			<th>Walker</th>
+		</tr>
+		<tr th:each="walk : ${walks}">
+			<td th:text="${walk.date}"></td>
+			<td th:text="${walk.time}"></td>
+			<td th:text="${walk.startingAdress}"></td>
+			<td th:text="${walk.endAdress}"></td>			
+			<td th:text="'€ ' + ${walk.compensation}"></td>			
+			<td th:text="${walk.specialComments}"></td>
+			<td th:text="${walk.walker != null ? walk.walker.firstName + ' ' + walk.walker.lastName : 'No walker found yet'}"></td>
+		</tr>
+	</table>
+	
+	<p>Sign your dog up for a walk <a th:href="@{/addWalkEvent/{id}(id=${owner.ownerId})}">here</a>
+
+
+</body>
+</html>
+
+
+</body>
+</html>

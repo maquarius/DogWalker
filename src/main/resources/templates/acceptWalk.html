@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Accept Walk</title>
+</head>
+<body>
+	<h1>Accept Walk</h1>
+	<h2 th:text="${owner}"></h2>
+
+	<p>
+		Back to <a th:href="@{/home}">home</a>
+	</p>
+	
+	<form th:object="${walk}" th:action="@{/saveWalkEvent}" action="#" method="post">
+	<input hidden type="text" id="walkId" th:field="*{walkId}"/>
+	<input hidden type="text" id="dog" th:field="*{dog}"/>
+	<input hidden type="text" id="startingAddress" th:field="*{startingAdress}"/>
+	<input hidden type="text" id="endAddress" th:field="*{endAdress}"/>
+	<input hidden type="date" id="date" th:field="*{date}"/>
+	<input hidden type="time" id="time" th:field="*{time}"/>
+	<input hidden type="number" id="compensation" th:field="*{compensation}"/>
+	<input hidden type="text" id="specialComments" th:field="*{specialComments}"/>
+	
+	<select hidden id="walker" th:field="*{walker}">
+		<option th:each="walker: ${walker}" th:value="${walkerId}"></option>
+	</select>
+	
+	<input type="submit" value="Save"></input>
+		
+	</form>
+</body>
+</html>

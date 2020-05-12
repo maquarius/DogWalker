@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>List of walking events</title>
+</head>
+<body>
+	<h1>List of all walking events</h1>
+
+	<p>
+		Back to <a th:href="@{/home}">home</a>
+	</p>
+
+	<table>
+		<tr>
+			<th>Dog</th>
+			<th>Starting Address</th>
+			<th>End Address</th>
+			<th>Payment</th>
+			<th>Special Comments</th>
+			<th>Date</th>
+			<th>Time</th>
+		</tr>
+		<tr th:each="walkevent : ${walkevents}">
+			<td th:text="${walkevent.dog.name}"></td>
+			<td th:text="${walkevent.startingAdress}"></td>
+			<td th:text="${walkevent.endAdress}"></td>
+			<td th:text="${walkevent.compensation}"></td>
+			<td th:text="${walkevent.specialComments}"></td>
+			<td th:text="${walkevent.date}"></td>
+			<td th:text="${walkevent.time}"></td>
+	</table>
+
+</body>
+</html>
