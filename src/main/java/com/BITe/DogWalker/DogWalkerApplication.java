@@ -50,7 +50,7 @@ public class DogWalkerApplication {
 					new WalkEvent(drepository.findByName("Haiku").get(0), wrepository.findByFirstName("Johhny").get(0),
 							"Ratapihantie 13", "Short round today", "17-05-2020", "13:45", "Ratapihantie 14", 100));
 
-			// Password=hello. BCrypt 10 rounds
+			// Password=hello1/2. BCrypt 10 rounds
 			UserPerson user1 = new UserPerson("owner", "$2a$10$ZW2G2JhqGKquDMzJWuQn.etWhOExhGz7FEX24AEapmDWKhh1bqjUi",
 					"OWNER");
 			UserPerson user2 = new UserPerson("walker", "$2a$10$qSz86wu1yUFUnjfDyEu0p.uurYQJDe234uUPEFnUZxvGfvZEE2OUu",
